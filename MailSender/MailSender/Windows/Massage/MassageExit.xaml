@@ -1,0 +1,27 @@
+﻿<Window x:Class="MailSender.MassageExit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MailSender"
+        mc:Ignorable="d"
+        Title="Выход из программы" Height="150" Width="300" MaxHeight="150" MaxWidth="300">
+    <Window.Background>
+        <SolidColorBrush Color="Black"></SolidColorBrush>
+    </Window.Background>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock  Text="Работа программы завершена?" Foreground="LightGray" VerticalAlignment="Center" FontSize="15" Grid.Row="0" Grid.Column="0" TextBlock.TextAlignment="Center" MaxWidth="300"></TextBlock>
+                <Button Grid.Column="0" Height="30" Width ="100" Margin="10,0,178,1" VerticalAlignment="Bottom" Grid.Row="1" Content="Да" Click="Exit"/>
+                <Button Height="30" Width ="100" Margin="178,0,10,1" VerticalAlignment="Bottom" Grid.Row="1" Content="Нет" Click="Wait"/>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

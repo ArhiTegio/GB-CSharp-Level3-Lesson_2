@@ -1,0 +1,8 @@
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\bin\Release\netstandard2.0\Encryption.deps.json
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\bin\Release\netstandard2.0\Encryption.dll
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\bin\Release\netstandard2.0\Encryption.pdb
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\obj\Release\netstandard2.0\Encryption.csprojAssemblyReference.cache
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\obj\Release\netstandard2.0\Encryption.AssemblyInfoInputs.cache
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\obj\Release\netstandard2.0\Encryption.AssemblyInfo.cs
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\obj\Release\netstandard2.0\Encryption.dll
+D:\Программирование\Проекты\GB-CSharp-Level3-Lesson_2\MailSender\Encryption\obj\Release\netstandard2.0\Encryption.pdb
