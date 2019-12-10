@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Documents;
+using System.Windows.Markup;
+using System.Windows.Data;
+using System.Globalization;
 
 namespace MailSender
 {
     public class View: PropertyChanged_
     {
+        Control control = new Control();
 
         string subject = "";
         string body = "";

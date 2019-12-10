@@ -32,6 +32,7 @@ namespace MailSender
             Model.close = true;
             main.Close();
             Close();
+            Application.Current.Shutdown();
         }
 
         private void Wait(object sender, RoutedEventArgs e)

@@ -1,49 +1,139 @@
-﻿<Window x:Class="MailSender.MainWindow" Closing="OnWindowClosing"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
-        Title="MainWindow" 
-        Height="450" Width="800">
-    <Window.Background>
-        <SolidColorBrush Color="Black"></SolidColorBrush>
-    </Window.Background>
+    xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:TabSwitcher="clr-namespace:TabSwitcher;assembly=TabSwitcher" x:Class="MailSender.MainWindow" Closing="OnWindowClosing"
+        mc:Ignorable="d"
+        Title="Программа E-mail рассылки" 
+        Height="450" Width="800" Background="Black">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/MetroDark/MetroDark.MSControls.Core.Implicit.xaml" />
                 <ResourceDictionary Source="Themes/MetroDark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
         </ResourceDictionary>
     </Window.Resources>
-    <Grid>
+    <Window.DataContext>
+        <local:View />
+    </Window.DataContext>
 
-        <Label Content="User name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  />
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" />
-        <TextBox  Foreground="LightGray" x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="18" Margin="82,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox Foreground="LightGray"
-            x:Name="PasswordEdit" 
-            HorizontalAlignment="Left" 
-            Margin="82,45,0,0" 
-            VerticalAlignment="Top" 
-            Width="120">
-            <PasswordBox.Effect>
-                <DropShadowEffect/>
-            </PasswordBox.Effect>
-        </PasswordBox>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="OnWindowClosing"/>
+            </MenuItem>
+        </Menu>
 
-        <Button
-            Margin="614,380,10,10"
-            Click="Button_Click">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock FontSize="15" Text="Send"></TextBlock>
-                </StackPanel>
-            </Button.Content>
-        </Button>
-        <TextBox Foreground="LightGray" Text="{Binding Path= Subject, Mode=TwoWay, NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="23" Margin="10,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="772"/>
-        <TextBox Foreground="LightGray" Text="{Binding Path= Body, Mode=TwoWay, NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="254" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="772"/>
-    </Grid>
+        <TabSwitcher:TabSwitcherControl Back="TabSwitcherControl_OnBack" Forward="TabSwitcherControl_OnForward" DockPanel.Dock="Bottom"/>
+        <TabControl x:Name="MainTabControl" Width="792" Foreground="LightGray">
+            <TabItem Header="Рассылка">
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top">
+                        <ToolBar>
+                            <Label Content="Отправитель:"/>
+                            <ComboBox Name = "cbSenderSelect" ItemsSource="{x:Static local:Control.SendersDictionary}" Width="150" SelectedIndex="0">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Key}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button ToolTip="Добавить отправителя">
+                                <Image Source="Pictures/add.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Редактировать отправителя">
+                                <Image Source="Pictures/edit.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="Pictures/remove.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Margin="28,0,-163,0">
+                            <Label Content="Планировщик:"/>
+                            <Button ToolTip="Перейти в планировщик" Click="TabSwitcherControl_OnScheduler">
+                                <Image Source="Pictures/clock.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1" >
+                            <Label Content="Сервер:"/>
+                            <ComboBox Name = "cbSmtpServerSelect" ItemsSource="{x:Static local:Control.SmtpServerDictionary}" Width="150" SelectedIndex="0">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Key}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button ToolTip="Добавить отправителя">
+                                <Image Source="Pictures/add.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Редактировать отправителя">
+                                <Image Source="Pictures/edit.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="Pictures/remove.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1">
+                            <Label Content="Список адресатов:"/>
+                            <Button ToolTip="Добавить отправителя">
+                                <Image Source="Pictures/add.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Редактировать отправителя">
+                                <Image Source="Pictures/edit.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="Pictures/remove.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <DataGrid x:Name="dgEmails" ItemsSource="{ x:Static local:Database.Emails  }" 
+                              AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
+                            <DataGridTextColumn Header="Почта" Binding="{Binding Email}" Width="Auto"/>
+                            <DataGridTextColumn Header="Имя отправителя" Binding="{Binding Name}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Планировщик">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="3">
+                        <Calendar SelectionMode="MultipleRange"/>
+                        <wpfTool:TimePicker />
+                        <Button Margin="0,3">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="15" Source="Pictures/clock.png" Margin="0,0,4,0"/>
+                                <TextBlock Text="Запланировать"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Click="ButtonBase_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="15" Source="Pictures/letter-envelope.png" Margin="0,0,4,0"/>
+                                <TextBlock Text="Отправить сразу"/>
+                            </StackPanel>
+                        </Button>
+                        </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Редактор сообщений">
+                    <RichTextBox >
+                        <FlowDocument>
+                            <Paragraph>
+                            <Run x:Name="EditBox" Text="{Binding Subject, Mode=TwoWay}"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+            </TabItem>
+        </TabControl>
+        <TabSwitcher:TabSwitcherControl/>
+    </DockPanel>
 </Window>
