@@ -1,0 +1,12 @@
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\bin\Release\TabSwitcher.dll
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\bin\Release\TabSwitcher.pdb
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcherControl.g.cs
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.cache
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.lref
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcherControl.baml
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher.g.resources
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher.Properties.Resources.resources
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher.csproj.GenerateResource.cache
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher.dll
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher.pdb
+C:\Программирование\GB-CSharp-Level3-Lesson_2\MailSender\TabSwitcher\obj\Release\TabSwitcher.csprojAssemblyReference.cache
