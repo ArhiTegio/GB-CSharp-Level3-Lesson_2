@@ -17,15 +17,14 @@ namespace MailSender
 {
     partial class MainWindow : Window, INotifyPropertyChanged
     {
-        Control control = new Control();
         public MainWindow()
         {
             InitializeComponent();
             if (Control.TabSwitcherDictionary.Count == 0)
-                control.TabDict(MainTabControl);
+                Control.TabDict(MainTabControl);
         }
 
-        private void OnWindowClosing(object sender, CancelEventArgs e) { if (!Model.close) { (new MassageExit(this)).Show(); e.Cancel = true; } }
+        private void OnWindowClosing(object sender, CancelEventArgs e) { if (!Control.close) { (new MassageExit(this)).Show(); e.Cancel = true; } }
         
         private void TabSwitcherControl_OnBack(object sender, RoutedEventArgs e)
         {
@@ -48,14 +47,14 @@ namespace MailSender
 
             if (EditBox.Text == "")
             {
-                MessageBox.Show("Письмо не заполнено");
+                (new MessageError("Письмо не заполнено")).Show();
                 MainTabControl.SelectedIndex = Control.TabSwitcherDictionary["Редактор сообщений"];
             }
             else
             {
-                if (string.IsNullOrEmpty(item.Key)) MessageBox.Show("Выберите отправителя");
-                else if (string.IsNullOrEmpty(item.Value)) MessageBox.Show("Укажите пароль отправителя");
-                else control.Send(item.Key, item.Value);
+                if (string.IsNullOrEmpty(item.Key)) (new MessageError("Выберите отправителя")).Show();
+                else if (string.IsNullOrEmpty(item.Value)) (new MessageError("Укажите пароль отправителя")).Show();
+                else Control.Send(item.Key, item.Value);
             }
         }
 

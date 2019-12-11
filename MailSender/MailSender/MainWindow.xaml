@@ -29,10 +29,10 @@
         </Menu>
 
         <TabSwitcher:TabSwitcherControl Back="TabSwitcherControl_OnBack" Forward="TabSwitcherControl_OnForward" DockPanel.Dock="Bottom"/>
-        <TabControl x:Name="MainTabControl" Width="792" Foreground="LightGray">
+        <TabControl x:Name="MainTabControl" Width="792" Foreground="DimGray">
             <TabItem Header="Рассылка">
                 <DockPanel>
-                    <ToolBarTray DockPanel.Dock="Top">
+                    <ToolBarTray DockPanel.Dock="Top" Background="DimGray">
                         <ToolBar>
                             <Label Content="Отправитель:"/>
                             <ComboBox Name = "cbSenderSelect" ItemsSource="{x:Static local:Control.SendersDictionary}" Width="150" SelectedIndex="0">
@@ -90,12 +90,12 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <DataGrid x:Name="dgEmails" ItemsSource="{ x:Static local:Database.Emails  }" 
+                    <DataGrid x:Name="dgEmails" BorderBrush="Wheat" Background="Black" ItemsSource="{ x:Static local:Database.Emails  }" 
                               AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
-                            <DataGridTextColumn Header="Почта" Binding="{Binding Email}" Width="Auto"/>
-                            <DataGridTextColumn Header="Имя отправителя" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto" Foreground="DarkGray"/>
+                            <DataGridTextColumn Header="Почта" Binding="{Binding Email}" Width="Auto" Foreground="DarkGray"/>
+                            <DataGridTextColumn Header="Имя отправителя" Binding="{Binding Name}" Width="*" Foreground="DarkGray"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>

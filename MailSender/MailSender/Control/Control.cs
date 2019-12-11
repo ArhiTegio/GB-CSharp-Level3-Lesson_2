@@ -15,6 +15,7 @@ namespace MailSender
 {
     class Control
     {
+        public static bool close = false;
         public static Dictionary<string, int> TabSwitcherDictionary { get; } = new Dictionary<string, int>();
 
         public static Dictionary<string, int> SmtpServerDictionary { get; } = new Dictionary<string, int>
@@ -31,11 +32,11 @@ namespace MailSender
             {"Arhiaovich@yandex.ru", Encryption.Cryption.Decrypt_ASE( "EAAAAGvyuJ4+EmzUU+WuIpQqFjeyCL2sX/xJFlCLMY6+Ep0E", EncrypterDll.Encrypter.Encrypt("1234"))},
         };
 
-        EmailSender EmailSender = new EmailSender();
+        static EmailSender EmailSender = new EmailSender();
 
-        public void Send(string user, string password) => EmailSender.Send(user, password);
+        public static void Send(string user, string password) => EmailSender.Send(user, password);
 
-        public void TabDict(TabControl tab)
+        public static void TabDict(TabControl tab)
         {
             var pos = 0;
             foreach(TabItem e in tab.Items)

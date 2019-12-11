@@ -29,7 +29,7 @@ namespace MailSender
 
         private void Exit(object sender, RoutedEventArgs e)
         {
-            Model.close = true;
+            Control.close = true;
             main.Close();
             Close();
             Application.Current.Shutdown();
@@ -37,7 +37,7 @@ namespace MailSender
 
         private void Wait(object sender, RoutedEventArgs e)
         {
-            Model.close = false;
+            Control.close = false;
             Close();
         }
     }

@@ -104,7 +104,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Control.cs" />
+    <Compile Include="Control\Control.cs" />
     <Compile Include="View\View.cs" />
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -162,7 +162,6 @@
     <Compile Include="Windows\MessageSendCompletedDlg.xaml.cs">
       <DependentUpon>MessageSendCompletedDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
